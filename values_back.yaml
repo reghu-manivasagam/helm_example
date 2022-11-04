@@ -20,6 +20,10 @@ image:
   # May be required for public docker hub due to rate limiting or any private repository.
   # See: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
   pullSecret: infracodeacrsecret 
+
+
+
+##
 ## Service Account
 ##
 serviceAccount:
@@ -38,6 +42,7 @@ serviceAccount:
   #pullSecret: "your-pull-secret"
 
 ##
+## StackStorm shared variables
 ##
 st2:
   # Username, used to login to StackStorm system
@@ -138,14 +143,14 @@ st2:
       enabled: true
       packs:
         persistentVolumeClaim:
-          claimName: azurefilepacks          #existingclaim: azurefileinfcnew
+          #claimName: azurefileinfcnew 
+          existingclaim: azurefileinfcnew
       virtualenvs:
         persistentVolumeClaim:
-       #   existingclaim: azurevirtualenv  
-          claimName: azurevirtualenv
-      configs: 
-        persistentVolumeClaim:
-          claimName: azurevirtualenv    # mounted to /opt/stackstorm/packs
+          existingclaim: azurevirtualenv  
+      configs: {} 
+       # persistentVolumeClaim:
+          #claimName: azurevirtualenv    # mounted to /opt/stackstorm/packs
         # packs volume definition is required if st2.packs.volumes is enabled
 
         # example using persistentVolumeClaim:
@@ -230,6 +235,7 @@ st2:
     roles:
       # TIP: set files to an empty string to remove them (sample.yaml: "")
       sample.yaml: |
+        # sample RBAC role file, see https://docs.stackstorm.com/rbac.html#defining-roles-and-permission-grants
         ---
         name: "sample"
         description: "Example Role which contains no permission grants and serves for demonstration purposes"

@@ -342,6 +342,7 @@ spec:
         - name: st2-kv-vol
           secret:
             secretName: {{ .Release.Name }}-st2-kv
+            #secretName: azure-secret
         {{- range $.Values.jobs.extra_volumes }}
         - name: {{ required "Each volume must have a 'name' in jobs.extra_volumes" .name }}
           {{- tpl (required "Each volume must have a 'volume' definition in jobs.extra_volumes" .volume | toYaml) $ | nindent 10 }}
