@@ -1,4 +1,4 @@
-# `stackstorm-ha` Helm Chart
+# `infracode-ha` Helm Chart
 [![Build Status](https://circleci.com/gh/StackStorm/stackstorm-k8s/tree/master.svg?style=shield)](https://circleci.com/gh/StackStorm/stackstorm-k8s)
 [![Artifact HUB](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/stackstorm-ha)](https://artifacthub.io/packages/helm/stackstorm/stackstorm-ha)
 
